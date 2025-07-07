@@ -2,7 +2,7 @@
 
 void for_fun() {
     for (int i = 0; i < 9; ++i) {
-        printf("Having fun \n");
+        printf("Having fun %d\n", i);
     }
 }
 
