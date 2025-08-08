@@ -36,5 +36,31 @@ int main() {
         return 0;
     }
 
+    ten_bill_count = amount_after_substraction / ten_bill;
+    amount_after_substraction = amount_after_substraction - (ten_bill_count * ten_bill);
+
+    if (amount_after_substraction <= 0) {
+        show_bill_message(twenty_bill_count, ten_bill_count, five_bill_count, one_bill_count);
+
+        return 0;
+    }
+
+    five_bill_count = amount_after_substraction / five_bill;
+    amount_after_substraction = amount_after_substraction - (five_bill_count * five_bill);
+
+    if (amount_after_substraction <= 0) {
+        show_bill_message(twenty_bill_count, ten_bill_count, five_bill_count, one_bill_count);
+
+        return 0;
+    }
+
+    one_bill_count = amount_after_substraction / one_bill;
+    amount_after_substraction = amount_after_substraction - (one_bill_count * one_bill);
+
+    if (amount_after_substraction <= 0) {
+        show_bill_message(twenty_bill_count, ten_bill_count, five_bill_count, one_bill_count);
+
+    }
+
     return 0;
 }
