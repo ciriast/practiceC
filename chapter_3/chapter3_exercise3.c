@@ -10,5 +10,8 @@ int main() {
     printf("%f\n", 120.1);
     printf("%f \n", 120.1);
 
+    printf("%f,%f\n", 120.1, 120.1);
+    printf("%f, %f\n", 120.1, 120.1);
+
     return 0;
 }
