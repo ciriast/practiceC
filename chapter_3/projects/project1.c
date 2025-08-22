@@ -2,7 +2,7 @@
 
 int main() {
     char user_date[80];
-    
+
     printf("Enter a date (mm/dd/yyyy): ");
     scanf("%79s", user_date);
 
