@@ -10,7 +10,7 @@ int main() {
     char user_day[3] = {user_date[3], user_date[4], '\0'};
     char user_year[5] = {user_date[6], user_date[7], user_date[8], user_date[9], '\0'};
 
-    printf("You entered the year: %s\n", user_year);
+    printf("You entered the date: %s%s%s\n", user_year, user_month, user_day);
 
     return 0;
 }
