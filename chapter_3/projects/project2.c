@@ -14,5 +14,9 @@ int main() {
     printf("Enter purchase date (mm/dd/yyyy): ");
     scanf("%s", item_purchase_date);
 
+    printf("%19s", "Item");
+    printf("%25s", "Unit Price");
+    printf("%28s\n", "Purchase date");
+
     return 0;
 } 
