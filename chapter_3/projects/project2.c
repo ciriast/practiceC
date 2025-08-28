@@ -18,5 +18,9 @@ int main() {
     printf("%25s", "Unit Price");
     printf("%28s\n", "Purchase date");
 
+    printf("%19d", item_number);
+    printf("%25.2f", item_price);
+    printf("%28s\n", item_purchase_date);
+
     return 0;
 } 
