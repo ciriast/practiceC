@@ -1,9 +1,12 @@
 #include <stdio.h>
 
+int my_strlen(char *s);
+
 int main() {
     int item_number;
     float item_price;
     char item_purchase_date[30];
+    int space_count = 19;
 
     printf("Enter item number: ");
     scanf("%d", &item_number);
