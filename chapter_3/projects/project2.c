@@ -21,6 +21,11 @@ int main() {
     printf("%25s", "Unit Price");
     printf("%28s\n", "Purchase date");
 
+
+    int item_number_len = snprintf(NULL, 0, "%d", item_number);
+    int item_price_len = snprintf(NULL, 0, "%f", item_price);
+    int item_purchase_date_len = my_strlen(item_purchase_date);
+
     printf("%19d", item_number);
     printf("%25.2f", item_price);
     printf("%28s\n", item_purchase_date);
