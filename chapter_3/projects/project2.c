@@ -26,4 +26,15 @@ int main() {
     printf("%28s\n", item_purchase_date);
 
     return 0;
-} 
+}
+
+int my_strlen(char *s) {
+    int count = 0;
+
+    while (*s != '\0') {
+        count++;
+        *s++;
+    }
+
+    return count;
+}
