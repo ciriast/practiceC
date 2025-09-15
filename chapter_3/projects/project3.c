@@ -40,12 +40,17 @@ int text_length(char *text) {
     return text_length_to_return;
 }
 
-char *get_piece_of_text(int start_index, int end_index, char *text) {
-    char piece_of_text [15];
+char *get_piece_of_text(int start_index, int buffer, char *text) {
+    int buffer_with_end = buffer + 1;
+    char piece_of_text [buffer_with_end];
+    int length_to_copy = buffer;
 
-    for (int i = start_index; i <= end_index; ++i) {
-        piece_of_text[i] = text[i];
+    for (int i = 0; i < length_to_copy; ++i) {
+        piece_of_text[i] = text[start_index];
+        start_index++;
     }
+
+    piece_of_text[buffer_with_end - 1] = '\0';
 
     return piece_of_text;
 }
