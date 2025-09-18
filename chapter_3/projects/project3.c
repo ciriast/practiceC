@@ -16,7 +16,7 @@ int main() {
         
     int first_index = find_in_text(0, user_isbn, text_length_val);
 
-    char *testing_result = get_piece_of_text(0, 3, user_isbn);
+    char *testing_result = get_piece_of_text(0, first_index, user_isbn);
 
     printf("%s\n", testing_result);
 
