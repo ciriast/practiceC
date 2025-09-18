@@ -3,7 +3,7 @@
 
 int find_in_text(int start_index, char *text, int text_length);
 int text_length(char *text);
-char *get_piece_of_text(int start_index, int end_index, char *text);
+char *get_piece_of_text(int start_index, int buffer, char *text);
 
 int main() {
 
@@ -16,7 +16,9 @@ int main() {
         
     int first_index = find_in_text(0, user_isbn, text_length_val);
 
-    printf("%d\n", first_index);
+    char *testing_result = get_piece_of_text(first_index, 3, user_isbn);
+
+    printf("%s\n", testing_result);
 
     return 0;
 }
