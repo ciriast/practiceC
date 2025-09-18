@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int find_in_text(int start_index, char *text, int text_length);
 int text_length(char *text);
@@ -42,7 +43,7 @@ int text_length(char *text) {
 
 char *get_piece_of_text(int start_index, int buffer, char *text) {
     int buffer_with_end = buffer + 1;
-    char piece_of_text [buffer_with_end];
+    char *piece_of_text = (char*) malloc(buffer_with_end);
     int length_to_copy = buffer;
 
     for (int i = 0; i < length_to_copy; ++i) {
