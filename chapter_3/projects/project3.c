@@ -15,10 +15,12 @@ int main() {
     int text_length_val = text_length(user_isbn);
         
     int first_index = find_in_text(0, user_isbn, text_length_val);
+    int group_identifier_index = find_in_text(first_index, user_isbn, text_length_val);
 
-    char *testing_result = get_piece_of_text(0, first_index, user_isbn);
+    char *gs1_prefix = get_piece_of_text(0, first_index, user_isbn);
+    char *group_identifier = get_piece_of_text(first_index, group_identifer_index, text_length_val);
 
-    printf("%s\n", testing_result);
+    printf("%s\n", gs1_prefix);
 
     free(testing_result);
 
