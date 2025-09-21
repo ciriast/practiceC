@@ -16,8 +16,11 @@ int main() {
         
     int first_index = find_in_text(0, user_isbn, text_length_val);
     int group_identifier_index = find_in_text(first_index, user_isbn, text_length_val);
+    int publisher_index = find_in_text(group_identifier_index, user_isbn, text_length_val);
 
     printf("group index: %d\n", group_identifier_index);
+    printf("publisher_index: %d\n", publisher_index);
+
     char *gs1_prefix = get_piece_of_text(0, first_index, user_isbn);
     char *group_identifier = get_piece_of_text(first_index, group_identifier_index, user_isbn);
 
@@ -32,7 +35,7 @@ int main() {
 
 int find_in_text(int start_index, char *text, int text_length) {
     
-    for(int i = start_index + 1; i < text_length; i++) {
+    for(int i = start_index; i < text_length; i++) {
         if (text[i] == '-')
             return i;
     }
@@ -51,7 +54,7 @@ int text_length(char *text) {
 }
 
 char *get_piece_of_text(int start_index, int buffer, char *text) {
-    int buffer_with_end = buffer + 1;
+    int buffer_with_end = buffer + 1;       
     char *piece_of_text = (char*) malloc(buffer_with_end);
     int length_to_copy = buffer;
 
