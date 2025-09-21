@@ -17,12 +17,15 @@ int main() {
     int first_index = find_in_text(0, user_isbn, text_length_val);
     int group_identifier_index = find_in_text(first_index, user_isbn, text_length_val);
 
+    printf("group index: %d\n", group_identifier_index);
     char *gs1_prefix = get_piece_of_text(0, first_index, user_isbn);
-    char *group_identifier = get_piece_of_text(first_index, group_identifer_index, text_length_val);
+    char *group_identifier = get_piece_of_text(first_index, group_identifier_index, user_isbn);
 
-    printf("%s\n", gs1_prefix);
+    printf("GS1 prefix: %s\n", gs1_prefix);
+    printf("Group identifier: %s\n", group_identifier);
 
-    free(testing_result);
+    free(gs1_prefix);
+    free(group_identifier);
 
     return 0;
 }
