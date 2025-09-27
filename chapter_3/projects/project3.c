@@ -15,14 +15,16 @@ int main() {
     int text_length_val = text_length(user_isbn);
         
     int first_index = find_in_text(0, user_isbn, text_length_val);
-    int what_i_need = first_index + 1;
-    int group_identifier_index = find_in_text(what_i_need, user_isbn, text_length_val);
+    int first_index_group_identifier = first_index + 1;
+    int group_identifier_index = find_in_text(first_index_group_identifier, user_isbn, text_length_val);
     int publisher_index = find_in_text(group_identifier_index, user_isbn, text_length_val);
 
-    int testing = group_identifier_index - what_i_need;
+    int group_identifier_buffer = group_identifier_index - first_index_group_identifier;
+
+    printf("buffer: %d\n", group_identifier_buffer);
 
     char *gs1_prefix = get_piece_of_text(0, first_index, user_isbn);
-    char *group_identifier = get_piece_of_text(what_i_need, testing, user_isbn);
+    char *group_identifier = get_piece_of_text(first_index_group_identifier, group_identifier_buffer, user_isbn);
 
     printf("GS1 prefix: %s\n", gs1_prefix);
     printf("Group identifier: %s\n", group_identifier);
