@@ -15,31 +15,42 @@ int main() {
     int text_length_val = text_length(user_isbn);
         
     int first_index = find_in_text(0, user_isbn, text_length_val);
-    int first_index_group_identifier = first_index + 1;
+    int first_index_group_identifier = first_index;
+
     int group_identifier_index = find_in_text(first_index_group_identifier, user_isbn, text_length_val);
-    int publisher_index = find_in_text(group_identifier_index, user_isbn, text_length_val);
+    int first_index_publisher_code = first_index_group_identifier;
+
+    int publisher_code_index = find_in_text(first_index_publisher_code, user_isbn, text_length_val);
 
     int group_identifier_buffer = group_identifier_index - first_index_group_identifier;
+    int publisher_code_buffer = publisher_code_index - first_index_publisher_code;
 
-    printf("buffer: %d\n", group_identifier_buffer);
+    printf("index: %d\n", first_index_publisher_code);
 
     char *gs1_prefix = get_piece_of_text(0, first_index, user_isbn);
     char *group_identifier = get_piece_of_text(first_index_group_identifier, group_identifier_buffer, user_isbn);
+    char *publisher_code = get_piece_of_text(first_index_publisher_code, publisher_code_buffer, user_isbn);
 
     printf("GS1 prefix: %s\n", gs1_prefix);
     printf("Group identifier: %s\n", group_identifier);
+    printf("Publisher code: %s\n", publisher_code);
 
     free(gs1_prefix);
     free(group_identifier);
+    free(publisher_code);
 
     return 0;
 }
 
 int find_in_text(int start_index, char *text, int text_length) {
- 
+
+    int not_first_index = 0;
+
     for(int i = start_index; i < text_length; i++) {
-        if (text[i] == '-')
-            return i;
+        if (text[i] == '-' && not_first_index != 0)
+            return i + 1;
+
+        not_first_index++;
     }
         
     return start_index;
