@@ -26,24 +26,33 @@ int main() {
 
     int item_number_index = find_in_text(first_index_item_number, user_isbn, text_length_val);
 
+    int first_check_index = item_number_index;
+
+    int check_digit_index = find_in_text(first_check_index, user_isbn, text_length_val);
+
     int gs1_prefix_buffer = first_index - 1;
     int group_identifier_buffer = (group_identifier_index - first_index_group_identifier) - 1;
     int publisher_code_buffer = (publisher_code_index - first_index_publisher_code) - 1;
     int item_number_buffer = (item_number_index - first_index_item_number) - 1;
+    int check_digit_buffer = (check_digit_index - first_check_index);
 
     char *gs1_prefix = get_piece_of_text(0, gs1_prefix_buffer, user_isbn);
     char *group_identifier = get_piece_of_text(first_index_group_identifier, group_identifier_buffer, user_isbn);
     char *publisher_code = get_piece_of_text(first_index_publisher_code, publisher_code_buffer, user_isbn);
     char *item_number = get_piece_of_text(first_index_item_number, item_number_buffer, user_isbn);
+    char *check_digit = get_piece_of_text(first_check_index, check_digit_buffer, user_isbn);
 
     printf("GS1 prefix: %s\n", gs1_prefix);
     printf("Group identifier: %s\n", group_identifier);
     printf("Publisher code: %s\n", publisher_code);
     printf("Item number: %s\n", item_number);
+    printf("Check digit: %s\n", check_digit);
 
     free(gs1_prefix);
     free(group_identifier);
     free(publisher_code);
+    free(item_number);
+    free(check_digit);
 
     return 0;
 }
@@ -53,6 +62,8 @@ int find_in_text(int start_index, char *text, int text_length) {
     for(int i = start_index; i < text_length; i++) {
         if (text[i] == '-')
             return i + 1;
+
+        start_index++;
     }
         
     return start_index;
