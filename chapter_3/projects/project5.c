@@ -2,6 +2,8 @@
 
 int main() {
     int numbers_from_user[15];
+    int arragment = 4;
+    int number_groups [3][3];
 
     printf("Enter the numbers from 1 to 16 in any order: ");
     scanf("%d", &numbers_from_user[0]);
@@ -21,9 +23,20 @@ int main() {
     scanf("%d", &numbers_from_user[14]);
     scanf("%d", &numbers_from_user[15]);
 
-    for (int i = 0; i < 15; ++ i) {
-        printf("%d", numbers_from_user[i]);
+    int control_row = 0;
+    int control_column = 0;
+
+    for (int i = 0; i < 15; ++i) {
+        number_groups[control_row][control_column] = numbers_from_user[i];
+        control_column++;
+
+        if (control_column == 4) {
+            control_row++;
+            control_column = 0;
+        }
     }
+
+    printf("example: %d", number_groups[0][3]);
 
     return 0;
 }
