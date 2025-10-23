@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+void print_array(int items[3]);
+
 int main() {
     int numbers_from_user[15];
     int arragment = 4;
@@ -24,19 +26,29 @@ int main() {
     scanf("%d", &numbers_from_user[15]);
 
     int control_row = 0;
-    int control_column = 0;
+    int control_column = 1;
 
     for (int i = 0; i < 15; ++i) {
-        number_groups[control_row][control_column] = numbers_from_user[i];
+
+        number_groups[control_row][control_column - 1] = numbers_from_user[i];
+
         control_column++;
 
         if (control_column == 4) {
             control_row++;
-            control_column = 0;
+            control_column = 1;
         }
     }
 
-    printf("example: %d", number_groups[0][3]);
+    print_array(number_groups[0]);
 
     return 0;
+}
+
+void print_array(int items[3]) {
+    for (int i = 0; i < 4; ++i) {
+        printf(" %d", items[i]);
+    }
+
+    printf("\n");
 }
