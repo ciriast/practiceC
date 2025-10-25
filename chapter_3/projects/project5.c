@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 void print_array(int items[4]);
+void sum_array(int items[4]);
 
 int main() {
     int numbers_from_user[16];
@@ -45,6 +46,13 @@ int main() {
     print_array(number_groups[2]);
     print_array(number_groups[3]);
 
+    printf("**** SUM the rows ****\n");
+
+    sum_array(number_groups[0]);
+    sum_array(number_groups[1]);
+    sum_array(number_groups[2]);
+    sum_array(number_groups[3]);
+
     return 0;
 }
 
@@ -54,4 +62,15 @@ void print_array(int items[4]) {
     }
 
     printf("\n");
+}
+
+
+void sum_array(int items[4]) {
+    int total = 0;
+
+    for (int i = 0; i < 4; ++i) {
+        total += items[i];
+    }
+
+    printf("total: %d\n", total);
 }
