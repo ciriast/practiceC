@@ -2,6 +2,7 @@
 
 void print_array(int items[4]);
 void sum_array(int items[4]);
+void sum_columns(int item[4], int item2[4], int item3[4], int item4[4]);
 
 int main() {
     int numbers_from_user[16];
@@ -53,6 +54,8 @@ int main() {
     sum_array(number_groups[2]);
     sum_array(number_groups[3]);
 
+    sum_columns(number_groups[0], number_groups[1], number_groups[2], number_groups[3]);
+
     return 0;
 }
 
@@ -73,4 +76,19 @@ void sum_array(int items[4]) {
     }
 
     printf("total: %d\n", total);
+}
+
+void sum_columns(int item[4], int item2[4], int item3[4], int item4[4]) {
+    int totals[4];
+
+    for (int i = 0; i < 4; ++i) {
+        totals[i] = item[i] + item2[i] + item3[i] + item4[i];
+    }
+
+    printf("**** SUM the columns ****\n");
+
+    printf("column 1: %d\n", totals[0]);
+    printf("column 2: %d\n", totals[1]);
+    printf("column 3: %d\n", totals[2]);
+    printf("column 4: %d\n", totals[3]);
 }
