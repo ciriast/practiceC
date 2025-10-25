@@ -3,6 +3,7 @@
 void print_array(int items[4]);
 void sum_array(int items[4]);
 void sum_columns(int item[4], int item2[4], int item3[4], int item4[4]);
+void sum_diagonal(int item[4], int item2[4], int item3[4], int item4[4]);
 
 int main() {
     int numbers_from_user[16];
@@ -55,6 +56,7 @@ int main() {
     sum_array(number_groups[3]);
 
     sum_columns(number_groups[0], number_groups[1], number_groups[2], number_groups[3]);
+    sum_diagonal(number_groups[0], number_groups[1], number_groups[2], number_groups[3]);
 
     return 0;
 }
@@ -91,4 +93,14 @@ void sum_columns(int item[4], int item2[4], int item3[4], int item4[4]) {
     printf("column 2: %d\n", totals[1]);
     printf("column 3: %d\n", totals[2]);
     printf("column 4: %d\n", totals[3]);
+}
+
+void sum_diagonal(int item[4], int item2[4], int item3[4], int item4[4]) {
+    int total_diagonal1 = item[0] + item2[1] + item3[2] + item4[3];
+    int total_diagonal2 = item[3] + item2[2] + item3[1] + item4[0];
+
+    printf("**** SUM the diagonals ****\n");
+
+    printf("diagonal 1: %d\n", total_diagonal1);
+    printf("diagonal 2: %d\n", total_diagonal2);
 }
