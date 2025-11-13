@@ -18,7 +18,12 @@ int main() {
     printf("Enter second group of five digits: ");
     scanf("%1d%1d%1d%1d%1d", &j1, &j2, &j3, &j4, &j5);
 
-    printf("Check digit: %d\n", 5);
+    first_sum = first_digit + i2 + i4 + j1 + j3 + j5;
+    second_sum = i1 + i3 + i5 + j2 + j4;
+
+    total = 3 * (first_sum + second_sum);
+
+    printf("Check digit: %d\n", total);
 
     return 0;
 }
